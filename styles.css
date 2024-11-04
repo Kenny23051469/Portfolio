@@ -49,6 +49,9 @@ nav a:hover {
 }
 
 .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 120px;
 }
 
@@ -69,10 +72,19 @@ nav a:hover {
   color: #ccc;
 }
 
+.hero-content {
+  max-width: 60%;
+}
+
+.hero-image {
+  max-width: 35%;
+}
+
 .hero-image img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .experience-education-toggle {

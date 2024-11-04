@@ -4,36 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kenny</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Kenny's Contact Page</title>
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <nav>
                 <ul>
                     <li><a href="index.html">home</a></li>
+                    <li><a href="about.html">about</a></li>
                     <li><a href="projects.html">projects</a></li>
                     <li><a href="contact.html">contact</a></li>
                 </ul>
             </nav>
-            <!-- Theme Toggle Icon -->
-            <button id="theme-toggle">
-                <i class="bi bi-brightness-high"></i>
-            </button>
-        </div>
+            <button id="theme-toggle"><i class="bi bi-brightness-high"></i></button>
+        </header>
 
         <div class="hero">
-            <h1>contact me</h1>
+            <h1>Contact Me</h1>
+            <p>I'd love to hear from you! Feel free to reach out using the form below.</p>
         </div>
 
-        <div class="contact" id="contact">
+        <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
             <h2>Get in Touch</h2>
-            <p>Feel free to reach out to me at <a href="mailto:email@example.com">email@example.com</a> or connect with me
-                on <a href="https://github.com">GitHub</a> or <a href="https://linkedin.com">LinkedIn</a>.</p>
+            <p>You can also reach me at <a href="mailto:Blueyy.Business@gmail.com">Blueyy.Business@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

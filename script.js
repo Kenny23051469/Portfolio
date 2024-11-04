@@ -39,3 +39,76 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
       icon.classList.add('bi-brightness-high');
   }
 });
+
+// Tick-Tack-Toe Game
+const modal = document.getElementById('tic-tac-toe-modal');
+const heroImage = document.getElementById('hero-image');
+const closeModal = document.getElementById('close-modal');
+
+// Show the modal when the hero image is clicked
+heroImage.onclick = function () {
+  modal.style.display = 'flex';
+};
+
+// Close the modal when the close button is clicked
+closeModal.onclick = function () {
+  modal.style.display = 'none';
+};
+
+// Close the modal when clicking outside the modal content
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+};
+
+// Tic Tac Toe Game Logic
+const cells = document.querySelectorAll('.cell');
+const statusText = document.getElementById('status');
+const resetButton = document.getElementById('reset');
+let currentPlayer = 'X';
+let board = Array(9).fill(null);
+
+// Winning combinations
+const winningCombinations = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+  [0, 4, 8], [2, 4, 6]             // Diagonals
+];
+
+function handleClick(event) {
+  const index = event.target.getAttribute('data-index');
+  if (!board[index] && !checkWinner()) {
+    board[index] = currentPlayer;
+    event.target.textContent = currentPlayer;
+    if (checkWinner()) {
+      statusText.textContent = `Player ${currentPlayer} Wins!`;
+    } else if (board.every(cell => cell)) {
+      statusText.textContent = "It's a Tie!";
+    } else {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      statusText.textContent = `Player ${currentPlayer}'s Turn`;
+    }
+  }
+}
+
+function checkWinner() {
+  return winningCombinations.some(combination => {
+    const [a, b, c] = combination;
+    return board[a] && board[a] === board[b] && board[a] === board[c];
+  });
+}
+
+function resetGame() {
+  board.fill(null);
+  cells.forEach(cell => (cell.textContent = ''));
+  currentPlayer = 'X';
+  statusText.textContent = `Player ${currentPlayer}'s Turn`;
+}
+
+// Event listeners
+cells.forEach(cell => cell.addEventListener('click', handleClick));
+resetButton.addEventListener('click', resetGame);
+
+// Initial status
+statusText.textContent = `Player ${currentPlayer}'s Turn`;

@@ -40,65 +40,84 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
   }
 });
 
-// Tick-Tack-Toe Game
-const modal = document.getElementById('tic-tac-toe-modal');
-const heroImage = document.getElementById('hero-image');
-const closeModal = document.getElementById('close-modal');
-
-// Show the modal when the hero image is clicked
-heroImage.onclick = function () {
-  modal.style.display = 'flex';
-};
-
-// Close the modal when the close button is clicked
-closeModal.onclick = function () {
-  modal.style.display = 'none';
-};
-
-// Close the modal when clicking outside the modal content
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = 'none';
-  }
-};
-
-// Tic Tac Toe Game Logic
-const cells = document.querySelectorAll('.cell');
-const statusText = document.getElementById('status');
-const resetButton = document.getElementById('reset');
-let currentPlayer = 'X';
+// Existing game variables
+let currentPlayer = 'X'; // Player starts as 'X'
 let board = Array(9).fill(null);
 
-// Winning combinations
-const winningCombinations = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-  [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-  [0, 4, 8], [2, 4, 6]             // Diagonals
-];
-
+// Modify handleClick to include AI move
 function handleClick(event) {
   const index = event.target.getAttribute('data-index');
   if (!board[index] && !checkWinner()) {
+    // Player's move
     board[index] = currentPlayer;
     event.target.textContent = currentPlayer;
+    if (checkWinner()) {
+      statusText.textContent = `Player ${currentPlayer} Wins!`;
+      return;
+    } else if (board.every(cell => cell)) {
+      statusText.textContent = "It's a Tie!";
+      return;
+    }
+
+    // Switch to AI's turn
+    currentPlayer = 'O';
+    statusText.textContent = `Player ${currentPlayer}'s Turn`;
+    setTimeout(makeAIMove, 500); // Delay AI move for better user experience
+  }
+}
+
+// Simple AI to make a move
+function makeAIMove() {
+  let move = findBestMove();
+  if (move !== -1) {
+    board[move] = currentPlayer;
+    cells[move].textContent = currentPlayer;
     if (checkWinner()) {
       statusText.textContent = `Player ${currentPlayer} Wins!`;
     } else if (board.every(cell => cell)) {
       statusText.textContent = "It's a Tie!";
     } else {
-      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      // Switch back to player
+      currentPlayer = 'X';
       statusText.textContent = `Player ${currentPlayer}'s Turn`;
     }
   }
 }
 
-function checkWinner() {
-  return winningCombinations.some(combination => {
-    const [a, b, c] = combination;
-    return board[a] && board[a] === board[b] && board[a] === board[c];
-  });
+// Find the best move for the AI
+function findBestMove() {
+  // Try to win
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i]) {
+      board[i] = currentPlayer;
+      if (checkWinner()) {
+        board[i] = null; // Undo move
+        return i;
+      }
+      board[i] = null; // Undo move
+    }
+  }
+  // Block the player
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i]) {
+      board[i] = 'X';
+      if (checkWinner()) {
+        board[i] = null; // Undo move
+        return i;
+      }
+      board[i] = null; // Undo move
+    }
+  }
+  // Choose a random available cell
+  const availableMoves = board
+    .map((cell, index) => (cell === null ? index : null))
+    .filter(index => index !== null);
+  return availableMoves.length > 0
+    ? availableMoves[Math.floor(Math.random() * availableMoves.length)]
+    : -1;
 }
 
+// Update the resetGame function to reset for both players
 function resetGame() {
   board.fill(null);
   cells.forEach(cell => (cell.textContent = ''));
@@ -112,3 +131,4 @@ resetButton.addEventListener('click', resetGame);
 
 // Initial status
 statusText.textContent = `Player ${currentPlayer}'s Turn`;
+

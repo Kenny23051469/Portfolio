@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
   toggleCheckbox.addEventListener('change', toggleSections);
 });
 
-
 // Toggle Light/Dark Mode
 document.getElementById('theme-toggle').addEventListener('click', function() {
   const body = document.body;
@@ -40,9 +39,34 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
   }
 });
 
-// Existing game variables
+// Ensuring `hero-image` is clickable
+const modal = document.getElementById('tic-tac-toe-modal');
+const heroImage = document.getElementById('hero-image');
+const closeModal = document.getElementById('close-modal');
+
+// Show the modal when the hero image is clicked
+heroImage.onclick = function () {
+  modal.style.display = 'flex';
+};
+
+// Close the modal when the close button is clicked
+closeModal.onclick = function () {
+  modal.style.display = 'none';
+};
+
+// Close the modal when clicking outside the modal content
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+};
+
+// Game variables
 let currentPlayer = 'X'; // Player starts as 'X'
 let board = Array(9).fill(null);
+const cells = document.querySelectorAll('.cell');
+const statusText = document.getElementById('status');
+const resetButton = document.getElementById('reset');
 
 // Modify handleClick to include AI move
 function handleClick(event) {
@@ -117,6 +141,28 @@ function findBestMove() {
     : -1;
 }
 
+// Check if there's a winner
+function checkWinner() {
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  for (let combination of winningCombinations) {
+    const [a, b, c] = combination;
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // Update the resetGame function to reset for both players
 function resetGame() {
   board.fill(null);
@@ -125,10 +171,9 @@ function resetGame() {
   statusText.textContent = `Player ${currentPlayer}'s Turn`;
 }
 
-// Event listeners
+// Event listeners for game interaction
 cells.forEach(cell => cell.addEventListener('click', handleClick));
 resetButton.addEventListener('click', resetGame);
 
 // Initial status
 statusText.textContent = `Player ${currentPlayer}'s Turn`;
-

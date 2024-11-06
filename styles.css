@@ -98,19 +98,6 @@ nav a:hover {
   margin-bottom: 40px;
 }
 
-.experience-education-toggle button {
-  padding: 10px 20px;
-  background: #6e6e6e;
-  color: #474747;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.experience-education-toggle button.active {
-  background: white;
-  color: black;
-}
 
 .work-experience,
 .education {
@@ -284,11 +271,11 @@ body.light-mode .hero-icons .icon-btn i {
   grid-template-columns: repeat(2, 1fr);
   width: 100%; /* Make it full width */
   max-width: 900px; /* Match the width of the container */
-  border: 5px solid #343434;
+  border: 5px solid #414344;
   border-radius: 10px;
-  background: #343434;
+  background: #414344;
   font-weight: bold;
-  color: #343434;
+  color: #ffffff;
   margin-bottom: 15px; /* Add margin at the bottom for spacing */
   padding: 5px 0; /* Add padding for vertical spacing */
 }
@@ -314,7 +301,7 @@ body.light-mode .hero-icons .icon-btn i {
   height: 100%;
   left: 0%;
   border-radius: 10px;
-  background: white;
+  background: #0f101b;
   transition: all 0.3s;
 }
 

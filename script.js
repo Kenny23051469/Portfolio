@@ -67,11 +67,14 @@ let board = Array(9).fill(null);
 const cells = document.querySelectorAll('.cell');
 const statusText = document.getElementById('status');
 const resetButton = document.getElementById('reset');
+let isPlayerTurn = true; // Flag to check if it's the player's turn
 
 // Modify handleClick to include AI move
 function handleClick(event) {
+  if (!isPlayerTurn || checkWinner()) return; // Prevent move if it's AI's turn or game has ended
+
   const index = event.target.getAttribute('data-index');
-  if (!board[index] && !checkWinner()) {
+  if (!board[index]) {
     // Player's move
     board[index] = currentPlayer;
     event.target.textContent = currentPlayer;
@@ -86,6 +89,7 @@ function handleClick(event) {
     // Switch to AI's turn
     currentPlayer = 'O';
     statusText.textContent = `Player ${currentPlayer}'s Turn`;
+    isPlayerTurn = false; // Set flag to AI's turn
     setTimeout(makeAIMove, 500); // Delay AI move for better user experience
   }
 }
@@ -104,6 +108,7 @@ function makeAIMove() {
       // Switch back to player
       currentPlayer = 'X';
       statusText.textContent = `Player ${currentPlayer}'s Turn`;
+      isPlayerTurn = true; // Set flag to player's turn
     }
   }
 }
@@ -169,6 +174,7 @@ function resetGame() {
   cells.forEach(cell => (cell.textContent = ''));
   currentPlayer = 'X';
   statusText.textContent = `Player ${currentPlayer}'s Turn`;
+  isPlayerTurn = true; // Reset flag to player's turn
 }
 
 // Event listeners for game interaction

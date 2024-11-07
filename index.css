@@ -235,23 +235,18 @@ body.light-mode #theme-toggle i {
   justify-content: center;
   padding: 10px 20px;
   border-radius: 10px;
-  transition: none; /* Disable transition for all states */
+  transition: none;
 }
 
-/* Hover effects for the resume button */
-.resume-btn:hover {
-  border-style: outset;
-}
 
 body.light-mode .resume-btn {
   color: black;
-  border-color: black;
 }
 
 .hero-icons .icon-btn {
-  border: none; /* Remove border for icon buttons */
-  background: none; /* No background */
-  transition: none; /* Disable transition for all states */
+  border: none;
+  background: none;
+  transition: none;
 }
 
 .hero-icons .icon-btn i {
@@ -442,4 +437,8 @@ button#reset:hover {
   font-size: 15px;
   color: #ffffff;
   border: 2px solid #cdcdcd;
+}
+
+body.light-mode .skill-item {
+  color: black;
 }

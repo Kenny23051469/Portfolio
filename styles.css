@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'DM Sans';
   line-height: 1.6;
   color: white;
   background: #0f101b;
@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -52,13 +52,13 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .hero h2 {
@@ -77,19 +77,22 @@ nav a:hover {
 }
 
 .hero-image {
-  max-width: 35%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .hero-image img {
-  width: 100%;
+  width: 60%;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
 }
 
 .hero-image p {
-  font-size: 10px;
+  font-size: 8px;
+  text-align: center;
 }
 
 .experience-education-toggle {
@@ -114,8 +117,7 @@ nav a:hover {
 
 .job,
 .education-item {
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 15px;
   border-radius: 10px;
 }
 
@@ -271,9 +273,8 @@ body.light-mode .hero-icons .icon-btn i {
   grid-template-columns: repeat(2, 1fr);
   width: 100%; /* Make it full width */
   max-width: 900px; /* Match the width of the container */
-  border: 5px solid #414344;
+  border: 2px solid #cdcdcd;
   border-radius: 10px;
-  background: #414344;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 15px; /* Add margin at the bottom for spacing */
@@ -301,7 +302,7 @@ body.light-mode .hero-icons .icon-btn i {
   height: 100%;
   left: 0%;
   border-radius: 10px;
-  background: #0f101b;
+  background: #cdcdcd;
   transition: all 0.3s;
 }
 
@@ -311,18 +312,30 @@ body.light-mode .hero-icons .icon-btn i {
 }
 
 .toggleCheckbox:checked + .toggleContainer div:last-child {
-  color: #343434;
+  color: #000000;
   transition: color 0.3s;
 }
 
 .toggleCheckbox + .toggleContainer div:first-child {
-  color: #343434;
+  color: #000000;
   transition: color 0.3s;
 }
 
 .toggleCheckbox + .toggleContainer div:last-child {
   color: white;
   transition: color 0.3s;
+}
+
+.light-mode .toggleContainer div:first-child {
+  color: #000000;
+}
+
+.light-mode .toggleCheckbox:checked + .toggleContainer div:first-child {
+  color: #000000;
+}
+
+.light-mode .toggleContainer div:last-child {
+  color: rgb(0, 0, 0);
 }
 
 #tic-tac-toe-container {

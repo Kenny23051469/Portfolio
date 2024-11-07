@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="contact.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <script>
+        // Set the theme immediately based on localStorage preference
+        (function() {
+          const savedTheme = localStorage.getItem('theme');
+          const root = document.documentElement;
+      
+          if (savedTheme === 'light') {
+            root.classList.add('light-mode');
+          } else {
+            root.classList.remove('light-mode');
+          }
+        })();
+      </script>
+      
+      
 </head>
 
 <body>

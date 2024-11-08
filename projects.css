@@ -202,11 +202,16 @@ body.light-mode .resume-btn {
     margin: 0;
 }
 
+.light-mode .project-title {
+    color: #000000;
+}
+
 /* Project description */
 .project-description {
     margin: 10px 0;
     font-size: 12px;
     color: #b0b0b0;
+    margin-bottom: 20px;
 }
 
 /* Buttons for links */
@@ -221,18 +226,18 @@ body.light-mode .resume-btn {
     display: flex;
     align-items: center;
     padding: 6px 12px;
-    border: 1px solid #ffffff;
     border-radius: 8px;
-    background-color: transparent;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.3s;
     text-decoration: none;
 }
 
-.project-button:hover {
-    background-color: #555;
+.light-mode .project-button {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .project-button i {
@@ -257,3 +262,7 @@ body.light-mode .resume-btn {
     color: #ffffff;
     border: 2px solid #cdcdcd;
 }
+
+body.light-mode .skill-item {
+    color: black;
+  }

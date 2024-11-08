@@ -66,7 +66,6 @@ nav a:hover {
 }
 
 .contact-form {
-    border: 2px solid #cdcdcd;
     border-radius: 10px;
     padding: 10px;
     width: 100%;
@@ -79,10 +78,10 @@ nav a:hover {
 .contact-form input,
 .contact-form textarea {
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    border-radius: 10px;
+    border: 2px solid #cdcdcd;
+    background-color: transparent;
+    color: #cdcdcd;
 }
 
 .contact-form button {
@@ -95,9 +94,6 @@ nav a:hover {
     transition: background 0.3s;
 }
 
-.contact-form button:hover {
-    background: green;
-}
 
 .contact-info {
     text-align: center;

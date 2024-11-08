@@ -189,9 +189,9 @@ body.light-mode .resume-btn {
 /* Project image */
 .project-image {
     width: 100%;
-    height: 160px;
+    max-height: 200px;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 15px;
 }
 

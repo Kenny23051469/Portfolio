@@ -7,7 +7,7 @@
     <title>Kenny's Portfolio</title>
     <link rel="stylesheet" href="projects.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -26,9 +26,18 @@
         <div class="hero">
             <h1>Projects</h1>
         </div>
+
+        <div class="filter-buttons">
+            <button class="filter-button" data-filter="all">All</button>
+            <button class="filter-button" data-filter="web">Web Development</button>
+            <button class="filter-button" data-filter="mobile">Mobile Development</button>
+            <button class="filter-button" data-filter="uiux">UI/UX Design</button>
+            <button class="filter-button" data-filter="game">Game Development</button>
+        </div>
+
         <div class="projects-container">
 
-            <div class="project-card">
+            <div class="project-card" data-category="web">
                 <img src="project images/blueyyy.jpg" alt="Portfolio v1" class="project-image">
                 <h3 class="project-title" style="color: #cbd4de;">Portfolio v1</h3>
                 <p class="project-description">Personal portfolio version 1. Featuring works from 2021 - 2023.</p>
@@ -36,12 +45,13 @@
                     <span class="skill-item">WordPress</span>
                 </div>
                 <div class="project-buttons">
-                    <a href="https://kenny2021462754505.wordpress.com" target="_blank" class="project-button">View Website</a>
+                    <a href="https://kenny2021462754505.wordpress.com" target="_blank" class="project-button">View
+                        Website</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="project images/blueyyy.jpg" alt="Portfolio v1" class="project-image">
+            <div class="project-card" data-category="web">
+                <img src="project images/blueyyy.jpg" alt="Kyō Mart" class="project-image">
                 <h3 class="project-title" style="color: #ba4148;">Kyō Mart</h3>
                 <p class="project-description">Japanese E-Commence Website, featuring CRUD components.</p>
                 <div class="skills-container">
@@ -55,9 +65,54 @@
                 </div>
             </div>
 
+            <div class="project-card" data-category="mobile">
+                <img src="project images/blueyyy.jpg" alt="Guess the Anime" class="project-image">
+                <h3 class="project-title">Quiz Mobile App</h3>
+                <p class="project-description">A simple mobile application built in React Native that allows users to guess anime titles based off the image.</p>
+                <div class="skills-container">
+                    <span class="skill-item">React Native</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="#" class="project-button">View More</a>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            // Function to filter projects
+            function filterProjects(filter) {
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block'; // Show matching projects
+                    } else {
+                        card.style.display = 'none'; // Hide non-matching projects
+                    }
+                });
+            }
+
+            // Set up click events for each filter button
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove 'active' class from all buttons, then add it to the clicked button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Call the filter function based on the button's data-filter attribute
+                    const filter = button.getAttribute('data-filter');
+                    filterProjects(filter);
+                });
+            });
+
+            // Initialize by showing all projects
+            filterProjects('all');
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
+
 </html>

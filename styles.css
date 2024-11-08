@@ -105,6 +105,7 @@ nav a:hover {
   padding: 20px;
   border: 2px solid #cdcdcd;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .work-experience.active,
@@ -217,7 +218,7 @@ body.light-mode #theme-toggle i {
   justify-content: flex-start;
 }
 
-.about-me {
+.about-me .project-title {
   margin-bottom: 40px;
 }
 
@@ -442,6 +443,66 @@ button#reset:hover {
 body.light-mode .skill-item {
   color: black;
 }
+
+.projects-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.projects-title {
+  margin: 0;
+}
+
+.view-more {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.view-more i {
+  font-size: 20px;
+}
+
+.light-mode .view-more {
+  color: black;
+}
+
+footer {
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.footer-left p {
+  margin: 0;
+}
+
+.footer-right {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 
 /* Project.html's css */
 

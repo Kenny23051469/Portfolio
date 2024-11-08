@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenny's Portfolio</title>
-    <link rel="stylesheet" href="projects.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
 </head>
@@ -15,6 +19,7 @@
         <header class="header">
             <nav>
                 <ul>
+                    <li><a href="index.html"><img src="Website_Logo.png" width="50" /></a></li>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -55,6 +60,8 @@
                 <h3 class="project-title" style="color: #ba4148;">Kyō Mart</h3>
                 <p class="project-description">Japanese E-Commence Website, featuring CRUD components.</p>
                 <div class="skills-container">
+                    <span class="skill-item">HTML</span>
+                    <span class="skill-item">CSS</span>
                     <span class="skill-item">Node.js</span>
                     <span class="skill-item">Express</span>
                     <span class="skill-item">MySQL</span>
@@ -68,12 +75,27 @@
             <div class="project-card" data-category="mobile">
                 <img src="project images/GuessTheAnime_Logo.png" alt="Guess the Anime" class="project-image">
                 <h3 class="project-title">Quiz Mobile App</h3>
-                <p class="project-description">A simple mobile application built in React Native that allows users to guess anime titles based off the image.</p>
+                <p class="project-description">A simple mobile application built in React Native that allows users to
+                    guess anime titles based off the image.</p>
                 <div class="skills-container">
                     <span class="skill-item">React Native</span>
                 </div>
                 <div class="project-buttons">
-                    <a href="https://www.youtube.com/shorts/diRe0Ky-4Bk" target="_blank" class="project-button">View Demo Video</a>
+                    <a href="https://www.youtube.com/shorts/diRe0Ky-4Bk" target="_blank" class="project-button">View
+                        Demo Video</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project images/Video_Thumbnail.png" alt="Video Thumbnail" class="project-image">
+                <h3 class="project-title" style="color: #7658a4;">How to get rich in Robine City-17!!</h3>
+                <p class="project-description">A simple funny youtube video about a game tutorial.</p>
+                <div class="skills-container">
+                    <span class="skill-item">Premiere Pro</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://youtu.be/VWTaZ8uYdrA" target="_blank"
+                        class="project-button">View Video</a>
                 </div>
             </div>
         </div>

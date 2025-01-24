@@ -184,6 +184,36 @@ nav a:hover {
   .contact {
     margin-bottom: 80px;
   }
+
+  .filter-buttons {
+    gap: 5px;
+  }
+
+  .filter-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .projects-container {
+    justify-content: center;
+  }
+
+  .project-card {
+    min-width: 100%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .filter-button {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
 }
 
 body.light-mode {
@@ -231,11 +261,15 @@ body.light-mode #theme-toggle i {
   justify-content: flex-start;
 }
 
-.about-me, .project-title, .info {
+.about-me,
+.project-title,
+.info {
   margin-bottom: 40px;
 }
 
-.about-me h2, .skills h2, .info h2 {
+.about-me h2,
+.skills h2,
+.info h2 {
   margin-bottom: 15px;
 }
 
@@ -523,13 +557,12 @@ footer {
 
 /* Project.html's css */
 
-/* Container for projects */
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Default for larger screens */
 }
 
 /* Each project card */
@@ -538,10 +571,8 @@ footer {
   border: 2px solid #cdcdcd;
   color: #ffffff;
   border-radius: 10px;
-  min-width: 280px;
-  /* Minimum width to keep elements responsive */
-  max-width: 325px;
-  /* Optional: control max width if you don’t want them to stretch too much */
+  min-width: 280px; /* Minimum width to keep elements responsive */
+  max-width: 325px; /* Optional: control max width if you don’t want them to stretch too much */
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -642,6 +673,7 @@ body.light-mode .skill-item {
   gap: 10px;
   margin-bottom: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .filter-button {

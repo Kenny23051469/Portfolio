@@ -74,19 +74,19 @@
 
             <div class="project-card" data-category="mobile">
                 <img src="project images/GuessTheAnime_Logo.png" alt="Guess the Anime" class="project-image">
-                <h3 class="project-title">Quiz Mobile App</h3>
+                <h3 class="project-title" style="color: #e32121">Quiz Mobile App</h3>
                 <p class="project-description">A simple mobile application built in React Native that allows users to
                     guess anime titles based off the image.</p>
                 <div class="skills-container">
                     <span class="skill-item">React Native</span>
                 </div>
                 <div class="project-buttons">
-                    <a href="https://www.youtube.com/shorts/diRe0Ky-4Bk" target="_blank" class="project-button">View
-                        Demo Video</a>
+                    <a href="quizmobile.html" target="_blank" class="project-button">View
+                        More</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="none">
                 <img src="project images/Video_Thumbnail.png" alt="Video Thumbnail" class="project-image">
                 <h3 class="project-title" style="color: #7658a4;">How to get rich in Robine City-17!!</h3>
                 <p class="project-description">A simple funny youtube video about a game tutorial.</p>
@@ -94,14 +94,13 @@
                     <span class="skill-item">Premiere Pro</span>
                 </div>
                 <div class="project-buttons">
-                    <a href="https://youtu.be/VWTaZ8uYdrA" target="_blank"
-                        class="project-button">View Video</a>
+                    <a href="https://youtu.be/VWTaZ8uYdrA" target="_blank" class="project-button">View Video</a>
                 </div>
             </div>
 
             <div class="project-card" data-category="mobile">
                 <img src="project images/SectionList_Logo.png" alt="Video Thumbnail" class="project-image">
-                <h3 class="project-title" style="color: white">Section List Mobile App</h3>
+                <h3 class="project-title" style="color: #365586">Section List Mobile App</h3>
                 <p class="project-description">A simple react native app which uses SectionList component.</p>
                 <div class="skills-container">
                     <span class="skill-item">React Native</span>
@@ -114,7 +113,7 @@
 
             <div class="project-card" data-category="uiux">
                 <img src="project images/EDM_Logo.jpg" alt="Green Plan Logo" class="project-image">
-                <h3 class="project-title" style="color: white">SG Green Plan 2030 EDM Design</h3>
+                <h3 class="project-title" style="color: #349881">SG Green Plan 2030 EDM Design</h3>
                 <p class="project-description">An Electronic Direct Mail (EDM) for the Green Plan 2030 campaign.</p>
                 <div class="skills-container">
                     <span class="skill-item">Adobe Illustrator</span>
@@ -124,10 +123,11 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="uiux">
+            <div class="project-card" data-category="uiux mobile">
                 <img src="project images/ManhwaMate.png" alt="ManhwaMate Logo" class="project-image">
-                <h3 class="project-title" style="color: white">ManhwaMate</h3>
-                <p class="project-description">A React Native project which allows users to add Manhwas into a read list and manage them.</p>
+                <h3 class="project-title">ManhwaMate</h3>
+                <p class="project-description">A React Native project which allows users to add Manhwas into a read list
+                    and manage them.</p>
                 <div class="skills-container">
                     <span class="skill-item">React Native</span>
                     <span class="skill-item">JavaScript</span>
@@ -138,36 +138,26 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="uiux">
-                <img src="" alt="" class="project-image">
-                <h3 class="project-title" style="color: white">Placeholder</h3>
-                <p class="project-description">Placeholder</p>
-                <div class="skills-container">
-                    <span class="skill-item">Placeholder</span>
-                </div>
-                <div class="project-buttons">
-                    <a href="" class="project-button">View More</a>
-                </div>
-            </div>
         </div>
 
         <footer>
             <div class="footer-content">
-              <div class="footer-left">
-                <p>&copy; 2024 Kenny Wong. All Rights Reserved.</p>
-              </div>
-              <div class="footer-right">
-                <div class="hero-icons">
-                  <a href="https://www.linkedin.com/in/kennywongbl/" target="_blank" class="btn icon-btn"><i
-                      class="bi bi-linkedin"></i></a>
-                  <a href="mailto:blueyy.business@gmail.com" class="btn icon-btn"><i class="bi bi-envelope-fill"></i></a>
-                  <a href="https://github.com/Kenny23051469" target="_blank" class="btn icon-btn"><i
-                      class="bi bi-github"></i></a>
+                <div class="footer-left">
+                    <p>&copy; 2024 Kenny Wong. All Rights Reserved.</p>
                 </div>
-              </div>
+                <div class="footer-right">
+                    <div class="hero-icons">
+                        <a href="https://www.linkedin.com/in/kennywongbl/" target="_blank" class="btn icon-btn"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="mailto:blueyy.business@gmail.com" class="btn icon-btn"><i
+                                class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/Kenny23051469" target="_blank" class="btn icon-btn"><i
+                                class="bi bi-github"></i></a>
+                    </div>
+                </div>
             </div>
-          </footer>
-          
+        </footer>
+
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -175,32 +165,34 @@
             const projectCards = document.querySelectorAll('.project-card');
 
             // Function to filter projects
-            function filterProjects(filter) {
+            function filterProjects(filters) {
                 projectCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block'; // Show matching projects
+                    const categories = card.dataset.category.split(' ');
+                    const isVisible = filters.every(filter => categories.includes(filter) || filter === 'all');
+
+                    if (isVisible) {
+                        card.style.display = 'block';
                     } else {
-                        card.style.display = 'none'; // Hide non-matching projects
+                        card.style.display = 'none';
                     }
                 });
             }
 
-            // Set up click events for each filter button
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove 'active' class from all buttons, then add it to the clicked button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
 
-                    // Call the filter function based on the button's data-filter attribute
                     const filter = button.getAttribute('data-filter');
-                    filterProjects(filter);
+                    const filters = filter === 'all' ? ['all'] : filter.split(' '); // Handle multiple filters
+                    filterProjects(filters);
                 });
             });
 
             // Initialize by showing all projects
-            filterProjects('all');
+            filterProjects(['all']);
         });
+
     </script>
 
     <script src="script.js"></script>

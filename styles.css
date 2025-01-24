@@ -602,8 +602,8 @@ footer {
   margin: 0;
 }
 
-.light-mode .project-title {
-  color: #000000;
+.light-mode h3.project-title {
+  color: black;
 }
 
 /* Project description */
@@ -728,8 +728,7 @@ body.light-mode .skill-item {
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #cdcdcd;
-  background-color: transparent;
-  color: #cdcdcd;
+  background-color: rgb(68, 68, 68);
 }
 
 .contact-form button {

@@ -695,12 +695,13 @@ body.light-mode .skill-item {
 
 .contact-form button {
   padding: 10px;
-  background: rgb(0, 0, 0);
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  border: 2px solid #cdcdcd;
+  transition: color 0.3s;
 }
 
 

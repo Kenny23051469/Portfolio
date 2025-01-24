@@ -502,6 +502,13 @@ body.light-mode .skill-item {
   margin-bottom: 20px;
 }
 
+.youtube-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .projects-title {
   margin: 0;
 }
@@ -803,4 +810,33 @@ body.light-mode .contact-form button {
 
 body.light-mode .contact-info p {
   color: black;
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Gallery Images */
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.gallery img:hover {
+  transform: scale(1.1);
+  filter: brightness(1) saturate(1) contrast(1);
+  cursor: pointer;
 }

@@ -7,7 +7,6 @@
     <title>Kenny's Portfolio</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -33,12 +32,14 @@
         </div>
 
         <div class="contact-form-container">
-            <form class="contact-form" id="contactForm" action="https://formsubmit.co/89af6e5b0f23d5bd8ed6ba03a5b1dc2f" method="POST">
+            <!-- Form with FormSubmit -->
+            <form class="contact-form" id="contactForm">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <textarea name="message" placeholder="Leave Feedback, Questions or Inquiries." rows="5" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+            <div id="form-status" style="display:none; color: green; margin-top: 10px;">Message sent successfully!</div>
         </div>
 
         <div class="contact-info">
@@ -52,7 +53,35 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from navigating to another page
+
+            const form = event.target;
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Send the form data using fetch
+            fetch('https://formsubmit.co/your-email@example.com', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('form-status').style.display = 'block';
+                    form.reset(); // Clear the form after submission
+                } else {
+                    alert('Failed to send your message. Please try again later.');
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+                console.error(error);
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -737,6 +737,12 @@ body.light-mode .skill-item {
 }
 
 
+.contact-form button:hover {
+  background-color: #2a2b3d;
+  color: white;
+}
+
+
 .contact-info {
   text-align: center;
 }
@@ -792,6 +798,7 @@ body.light-mode .contact-form textarea {
 
 body.light-mode .contact-form button {
   background: #343434;
+  color: #ffffff
 }
 
 body.light-mode .contact-info p {

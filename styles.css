@@ -263,7 +263,8 @@ body.light-mode #theme-toggle i {
 
 .about-me,
 .project-title,
-.info {
+.info,
+.projects-title-container {
   margin-bottom: 40px;
 }
 
@@ -509,6 +510,25 @@ body.light-mode .skill-item {
   margin-bottom: 20px;
 }
 
+.youtube-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 (height/width * 100) */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 .projects-title {
   margin: 0;
 }
@@ -600,6 +620,7 @@ footer {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+  margin-bottom: 40px;
 }
 
 .light-mode h3.project-title {
@@ -717,18 +738,20 @@ body.light-mode .skill-item {
   border-radius: 10px;
   padding: 10px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: rgba(151, 151, 151, 0.158);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid #cdcdcd;
-  background-color: rgb(68, 68, 68);
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgb(255, 255, 255);
 }
 
 .contact-form button {
@@ -738,16 +761,8 @@ body.light-mode .skill-item {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  border: 2px solid #cdcdcd;
   transition: color 0.3s;
 }
-
-
-.contact-form button:hover {
-  background-color: #2a2b3d;
-  color: white;
-}
-
 
 .contact-info {
   text-align: center;
@@ -838,4 +853,57 @@ body.light-mode .contact-info p {
   transform: scale(1.1);
   filter: brightness(1) saturate(1) contrast(1);
   cursor: pointer;
+}
+
+/* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 80%;
+  max-height: 80vh;
+  display: block;
+  margin: auto;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover, .close:hover {
+  color: #bbb;
 }
